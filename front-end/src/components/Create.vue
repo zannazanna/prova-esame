@@ -9,18 +9,26 @@
       <option value="angular"> angular </option>
 
   </select>
+    <span v-if="offers.linguaggio == ''"> *</span>
+
   </div>
   <div class="flex flex-row m-5">
   <label for="icona" class="w-36">icona:</label>
   <input id="icona" v-model="offers.icona" class=" border w-1/4">
+      <span v-if="offers.icona == ''"> *</span>
+
   </div>
   <div class="flex flex-row m-5">
   <label for="azienda" class="w-36">azienda:</label>
   <input id="azienda" v-model="offers.azienda" class=" border w-1/4">
+      <span v-if="offers.azienda == ''"> *</span>
+
   </div>
   <div class="flex flex-row m-5">
   <label for="ral" class="w-36">ral:</label>
   <input id="ral" v-model="offers.ral" class=" border w-1/4">
+      <span v-if="offers.ral == 0"> *</span>
+
   </div>
 
   <div class="flex flex-row m-5">
@@ -31,6 +39,8 @@
             <option value="pro"> pro </option>
 
   </select>
+      <span v-if="offers.esperienza == ''"> *</span>
+
   </div>
 
   <div class="flex flex-row m-5">
@@ -39,14 +49,20 @@
       <option value="remota"> remota </option>
             <option value="presenza"> presenza </option>
 
-  </select>  </div>
+  </select> 
+      <span v-if="offers.location == ''"> *</span>
+ </div>
 
   <div class="flex flex-row m-5">
   <label for="descrizione" class="w-36">descrizione:</label>
   <textarea rows="" cols="" id="descrizione" v-model="offers.descrizione" class=" border w-1/4">  </textarea>
-  </div>
+      <span v-if="offers.descrizione == ''"> *</span>
 
-  <button @click="conferma()"> conferma</button>
+  </div>
+  <div v-if="this.offers.descrizione != '' && this.offers.location != '' && this.offers.esperienza != '' && this.offers.ral != 0 && this.offers.azienda != '' && this.offers.icona != '' && this.offers.linguaggio != '' "> 
+  <button  @click="conferma()" class="mr-5 ml-5 bg-slate-300 p-2 rounded"> conferma</button>
+  </div>
+  
   </div>
 </template>
 
